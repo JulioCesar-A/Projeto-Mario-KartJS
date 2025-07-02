@@ -45,6 +45,86 @@ async function logRollResult(characterName, block, diceResult, attribute){
 
 }
 
+async function playRaceEngine(character1, character2){
+
+  for(let round = 1; round <= 8; round++){
+    console.log(`🏁Rodada ${round}🏁`);
+
+    // Sortear bloco
+    let block = await getRandomBlock();
+    console.log(`Bloco: ${block}`);
+
+    
+    // Rolar dados
+    let diceResult1 = await rollDice();
+    console.log(diceResult1);
+    let diceResult2 = await rollDice();
+    console.log(diceResult2);
+
+
+    // Teste de habilidade
+    let totalTestSkill1 = 0;
+    let totalTestSkill2 = 0;
+
+    if (block === "RETA"){
+      totalTestSkill1 = diceResult1 + character1.VELOCIDADE;
+      totalTestSkill2 = diceResult2 + character2.VELOCIDADE;
+
+      await logRollResult(
+        player1.NOME,
+        "velocidade",
+        diceResult1,
+        character1.VELOCIDADE
+      );
+
+      await logRollResult(
+        player2.NOME,
+        "velocidade",
+        diceResult2,
+        character2.VELOCIDADE
+      );
+    }
+
+    if (block === "CURVA"){
+      totalTestSkill1 = diceResult1 + character1.MANOBRABILIDADE;
+      totalTestSkill2 = diceResult2 + character2.MANOBRABILIDADE;
+
+      await logRollResult(
+        player1.NOME,
+        "manobrabilidade",
+        diceResult1,
+        character1.MANOBRABILIDADE
+      );
+      
+      await logRollResult(
+        player2.NOME,
+        "manobrabilidade",
+        diceResult2,
+        character2.MANOBRABILIDADE
+      );
+    }
+    
+    if (block === "CONFRONTO"){
+      let powerResult1 = diceResult1 + character1.PODER;
+      let powerResult2 = diceResult2 + character2.PODER;
+
+      await logRollResult(
+        player1.NOME,
+        "poder",
+        diceResult1,
+        character1.PODER
+      );
+      
+      await logRollResult(
+        player2.NOME,
+        "velocidade",
+        diceResult2,
+        character2.PODER
+      );
+    }
+  }
+}
+
 
 (async function main(){
   console.log(
