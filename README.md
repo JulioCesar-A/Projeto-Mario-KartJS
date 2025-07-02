@@ -113,7 +113,7 @@
         </td>
         <td style="width: 33.33%; padding: 1rem; border: 3px solid #333; vertical-align: middle;">
             <div style="display: flex; align-items: center;">
-                <img src="./Docs/Characters/donkeykong.gif" alt="Donkey Kong" width="100px" style="margin-right: 15px; background: url()">
+                <img src="./Docs/Characters/donkeykong.gif" alt="Donkey Kong" width="100px" style="margin-right: 15px;">
                 <div>
                     <strong>Donkey Kong</strong><br>
                     Velocidade: 2<br>
