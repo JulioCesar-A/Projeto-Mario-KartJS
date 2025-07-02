@@ -1,0 +1,15 @@
+{
+  "name": "project-mario-kartjs",
+  "version": "0.0.1",
+  "description": "Racing simulator using Node.js",
+  "keywords": [
+    "Simulator", "Racing", "Node.js", "Mario Kart"
+  ],
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
