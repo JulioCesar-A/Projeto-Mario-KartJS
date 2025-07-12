@@ -1,23 +1,88 @@
-const player1 = {
-  NOME: "Mario",
-  VELOCIDADE: 3,
-  MANOBRABILIDADE: 3,
-  PODER: 3,
+const readline = require('readline');
+const charactersData = require('./data/characters.json');
+
+
+const rl = readline.createInterface({
+  input : process.stdin,
+  output : process.stdout
+});
+
+let player1 = {
+  NOME: "",
+  VELOCIDADE: null,
+  MANOBRABILIDADE: null,
+  PODER: null,
   PONTOS: 0,
 };
 
-const player2 = {
-  NOME: "Luigi",
-  VELOCIDADE: 4,
-  MANOBRABILIDADE: 3,
-  PODER: 2,
+let player2 = {
+  NOME: "",
+  VELOCIDADE: null,
+  MANOBRABILIDADE: null,
+  PODER: null,
   PONTOS: 0,
 };
 
+async function askQuestion(query) {
+  return new Promise(resolve => {
+    rl.question(query, resolve);
+  });
+}
+
+async function getRandomCharacter() {
+  return Math.floor(Math.random() * 8) + 1;
+}
+
+async function characterSelect(player) {
+  console.log("Escolha o seu personagem:");
+
+  charactersData.forEach(
+    char => console.log(`${char.id} - ${char.nome}\nVelocidade: ${char.velocidade}\nManobrabilidade: ${char.manobrabilidade}\nPoder: ${char.poder}\n\n------------
+      `)
+  );
+
+  console.log(`9 - Random\nVelocidade: ???\nManobrabilidade: ???\nPoder: ???\n\n------------
+  `);
+
+  const id = parseInt(await askQuestion('Jogador - Selecione o número do personagem -> '));
+
+  console.log(typeof id);
+  let selectedCharacter = {};
+
+  switch (true) {
+    case id === 9:
+      const randomId = await getRandomCharacter();
+      selectedCharacter = charactersData.find(char => char.id === randomId);
+      player.NOME = selectedCharacter.nome;
+      player.VELOCIDADE = selectedCharacter.velocidade;
+      player.MANOBRABILIDADE = selectedCharacter.manobrabilidade;
+      player.PODER = selectedCharacter.poder;
+
+      console.log(`Personagem selecionado: ${player.NOME}`);
+      break;
+
+    case id < 9 && id > 0:
+      selectedCharacter = charactersData.find(char => char.id === id);
+      player.NOME = selectedCharacter.nome;
+      player.VELOCIDADE = selectedCharacter.velocidade;
+      player.MANOBRABILIDADE = selectedCharacter.manobrabilidade;
+      player.PODER = selectedCharacter.poder;
+
+      console.log(`Personagem selecionado: ${player.NOME}`);
+      break;
+  
+    default:
+      console.log(id);
+      console.log("Id incorreto, informe um número válido.")
+      break;
+  }
+}
 
 async function rollDice() {
   return Math.floor(Math.random() * 6) + 1;
 }
+
+
 
 async function getRandomBlock() {
   let random = Math.random();
@@ -163,11 +228,27 @@ async function declareWinner(character1, character2){
 }
 
 (async function main(){
-  console.log(
-      `🏁 Corrida entre ${player1.NOME} e ${player2.NOME} 🏁\n`
-    );
+  // console.log(
+      // `🏁 Corrida entre ${player1.NOME} e ${player2.NOME} 🏁\n`
+    // );
+  try {
+    await characterSelect(player1);
+    console.log(player1);
+    
+    await characterSelect(player2);
+    console.log(player2);
 
-    await playRaceEngine(player1, player2);
+    
+  } catch (error) {
+    console.error(error);
+  } finally {
+    rl.close()
+  }
 
-    await declareWinner(player1, player2);
+
+
+
+    // await playRaceEngine(player1, player2);
+
+    // await declareWinner(player1, player2);
 })();
