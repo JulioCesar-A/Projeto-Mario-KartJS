@@ -1,0 +1,58 @@
+[
+    {
+        "id" : 1,
+        "nome" : "Mario",
+        "velocidade" : 3,
+        "manobrabilidade" : 3,
+        "poder" : 3
+    },
+    {
+        "id" : 2,
+        "nome" : "Luigi",
+        "velocidade" : 4,
+        "manobrabilidade" : 3,
+        "poder" : 2
+    },
+    {
+        "id" : 3,
+        "nome" : "Peach",
+        "velocidade" : 3,
+        "manobrabilidade" : 4,
+        "poder" : 2 
+    },
+    {
+        "id" : 4,
+        "nome" : "Koopa",
+        "velocidade" : 3,
+        "manobrabilidade" : 4,
+        "poder" : 3
+    },
+    {
+        "id" : 5,
+        "nome" : "Yoshi",
+        "velocidade" : 4,
+        "manobrabilidade" : 4,
+        "poder" : 3
+    },
+    {
+        "id" : 6,
+        "nome" : "Toad",
+        "velocidade" : 5,
+        "manobrabilidade" : 2,
+        "poder" : 1
+    },
+    {
+        "id" : 7,
+        "nome" : "Bowser",
+        "velocidade" : 2,
+        "manobrabilidade" : 1,
+        "poder" : 5
+    },
+    {
+        "id" : 8,
+        "nome" : "Donkey Kong",
+        "velocidade" : 2,
+        "manobrabilidade" : 1,
+        "poder" : 5
+    }
+]

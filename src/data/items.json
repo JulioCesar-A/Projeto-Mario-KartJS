@@ -1,0 +1,17 @@
+[
+    {
+        "id" : 1,
+        "nome" : "Shell",
+        "pontos" : -2
+    },
+    {
+        "id" : 2,
+        "nome" : "Bob-Omb",
+        "pontos" : -3
+    },
+    {
+        "id" : 1,
+        "nome" : "Shell",
+        "pontos" : 0
+    }
+]
