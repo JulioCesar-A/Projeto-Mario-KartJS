@@ -1,17 +1,20 @@
 [
     {
         "id" : 1,
-        "nome" : "Shell",
-        "pontos" : -2
+        "name" : "Shell",
+        "category" : "offensive",
+        "points" : -2
     },
     {
         "id" : 2,
-        "nome" : "Bob-Omb",
-        "pontos" : -3
+        "name" : "Bob-Omb",
+        "category" : "offensive",
+        "points" : -3
     },
     {
-        "id" : 1,
-        "nome" : "Shell",
-        "pontos" : 0
+        "id" : 3,
+        "name" : "Boo",
+        "category" : "defensive",
+        "points" : 0
     }
 ]

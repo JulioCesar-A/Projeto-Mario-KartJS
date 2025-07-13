@@ -1,5 +1,6 @@
 const readline = require('readline');
 const charactersData = require('./data/characters.json');
+const itemsData = require('./data/items.json');
 
 
 const rl = readline.createInterface({
@@ -36,17 +37,33 @@ async function getRandomCharacter() {
 async function characterSelect(player) {
   console.log("Escolha o seu personagem:");
 
-  charactersData.forEach(
-    char => console.log(`${char.id} - ${char.nome}\nVelocidade: ${char.velocidade}\nManobrabilidade: ${char.manobrabilidade}\nPoder: ${char.poder}\n\n------------
-      `)
-  );
+  // charactersData.forEach(
+  //   char => console.log(`${char.id} - ${char.nome}\nVelocidade: ${char.velocidade}\nManobrabilidade: ${char.manobrabilidade}\nPoder: ${char.poder}\n\n------------
+  //     `)
+  // );
 
-  console.log(`9 - Random\nVelocidade: ???\nManobrabilidade: ???\nPoder: ???\n\n------------
-  `);
+for (let x = 0; x < charactersData.length; x += 3) {
+  if (x === 6) {
+    console.log(`----------------------|-----------------------|-------------------------
+${String(charactersData[x].id).padEnd(2)} -  ${charactersData[x].nome.padEnd(15)} | ${String(charactersData[x + 1].id).padEnd(2)} -  ${charactersData[x + 1].nome.padEnd(15)} | 9  -  Random
+Velocidade:      ${String(charactersData[x].velocidade).padEnd(3)}  | Velocidade:      ${String(charactersData[x + 1].velocidade).padEnd(3)}  | Velocidade:      ???
+Manobrabilidade: ${String(charactersData[x].manobrabilidade).padEnd(3)}  | Manobrabilidade: ${String(charactersData[x + 1].manobrabilidade).padEnd(3)}  | Manobrabilidade: ???
+Poder:           ${String(charactersData[x].poder).padEnd(3)}  | Poder:           ${String(charactersData[x + 1].poder).padEnd(3)}  | Poder:           ???
+`);
+  } else {
+    console.log(`----------------------|-----------------------|-------------------------
+${String(charactersData[x].id).padEnd(2)} -  ${charactersData[x].nome.padEnd(15)} | ${String(charactersData[x + 1].id).padEnd(2)} -  ${charactersData[x + 1].nome.padEnd(15)} | ${String(charactersData[x + 2].id).padEnd(2)} - ${charactersData[x + 2].nome.padEnd(10)}
+Velocidade:      ${String(charactersData[x].velocidade).padEnd(3)}  | Velocidade:      ${String(charactersData[x + 1].velocidade).padEnd(3)}  | Velocidade:      ${String(charactersData[x + 2].velocidade).padEnd(3)}
+Manobrabilidade: ${String(charactersData[x].manobrabilidade).padEnd(3)}  | Manobrabilidade: ${String(charactersData[x + 1].manobrabilidade).padEnd(3)}  | Manobrabilidade: ${String(charactersData[x + 2].manobrabilidade).padEnd(3)}
+Poder:           ${String(charactersData[x].poder).padEnd(3)}  | Poder:           ${String(charactersData[x + 1].poder).padEnd(3)}  | Poder:           ${String(charactersData[x + 2].poder).padEnd(3)}
+                      |                       |`);
+  }
+}
+
+
 
   const id = parseInt(await askQuestion('Jogador - Selecione o número do personagem -> '));
 
-  console.log(typeof id);
   let selectedCharacter = {};
 
   switch (true) {
@@ -57,8 +74,6 @@ async function characterSelect(player) {
       player.VELOCIDADE = selectedCharacter.velocidade;
       player.MANOBRABILIDADE = selectedCharacter.manobrabilidade;
       player.PODER = selectedCharacter.poder;
-
-      console.log(`Personagem selecionado: ${player.NOME}`);
       break;
 
     case id < 9 && id > 0:
@@ -67,12 +82,9 @@ async function characterSelect(player) {
       player.VELOCIDADE = selectedCharacter.velocidade;
       player.MANOBRABILIDADE = selectedCharacter.manobrabilidade;
       player.PODER = selectedCharacter.poder;
-
-      console.log(`Personagem selecionado: ${player.NOME}`);
       break;
   
     default:
-      console.log(id);
       console.log("Id incorreto, informe um número válido.")
       break;
   }
@@ -81,8 +93,6 @@ async function characterSelect(player) {
 async function rollDice() {
   return Math.floor(Math.random() * 6) + 1;
 }
-
-
 
 async function getRandomBlock() {
   let random = Math.random();
@@ -110,6 +120,63 @@ async function logRollResult(characterName, block, diceResult, attribute){
 
 }
 
+async function getRandomItem(){
+  return Math.floor(Math.random() * 3) + 1;
+}
+
+async function raceDuel(character1, character2, diceResult1, diceResult2){
+  console.log(`${character1.NOME} confrontou ${character2.NOME}!!`);
+
+  console.log();
+  console.log("Os jogadores receberam seus ítems...");
+  console.log();
+
+  const randomItem1Id = await getRandomItem(); 
+  const randomItem2Id = await getRandomItem(); 
+  
+  const item1 = itemsData.find(item => item.id === randomItem1Id);
+  const item2 = itemsData.find(item => item.id === randomItem2Id);
+
+  console.log(`${character1.NOME} recebeu o ítem: ${item1.name}`);
+  console.log(`${character2.NOME} recebeu o ítem: ${item2.name}`);
+  console.log();
+
+  let powerResult1;
+  let powerResult2;
+  
+  switch (true){
+    case item1.category === "defensive" && item2.category === "defensive":
+      if (item1.name === "Boo"){
+        powerResult1 = diceResult1 + character1.PODER - (character2.PODER * item1.points); 
+      }
+      if (item2.name === "Boo"){
+        powerResult2 = diceResult2 + character2.PODER - (character1.PODER * item2.points); 
+      }
+    break;
+
+    case item1.category === "offensive" && item2.category === "defensive":
+      powerResult1 = diceResult1 + character1.PODER;
+      if (item2.name === "Boo"){
+        powerResult2 = diceResult2 + character2.PODER - (item1.points * item2.points); 
+      }
+    break;
+
+    case item2.category === "offensive" && item1.category === "defensive":
+      powerResult2 = diceResult2 + character2.PODER;
+      if (item1.name === "Boo"){
+        powerResult1 = diceResult1 + character1.PODER - (item2.points * item1.points);
+      }
+    break;
+
+    default:
+      powerResult1 = diceResult1 + character1.PODER + item2.points;
+      powerResult2 = diceResult2 + character2.PODER + item1.points;
+    break;
+  }
+
+  return { powerResult1, powerResult2 };
+}
+
 async function playRaceEngine(character1, character2){
 
   for(let round = 1; round <= 8; round++){
@@ -119,13 +186,9 @@ async function playRaceEngine(character1, character2){
     let block = await getRandomBlock();
     console.log(`Bloco: ${block}`);
 
-    
-    // Rolar dados
     let diceResult1 = await rollDice();
     let diceResult2 = await rollDice();
 
-
-    // Teste de habilidade
     let totalTestSkill1 = 0;
     let totalTestSkill2 = 0;
 
@@ -168,25 +231,13 @@ async function playRaceEngine(character1, character2){
     }
     
     if (block === "CONFRONTO"){
-      let powerResult1 = diceResult1 + character1.PODER;
-      let powerResult2 = diceResult2 + character2.PODER;
+      let results = await raceDuel(character1, character2, diceResult1, diceResult2);
+      let powerResult1 = results.powerResult1;
+      let powerResult2 = results.powerResult2;
 
-      console.log(`${character1.NOME} confrontou ${character2.NOME}!!`);
       
-      await logRollResult(
-        player1.NOME,
-        "poder",
-        diceResult1,
-        character1.PODER
-      );
-      
-      await logRollResult(
-        player2.NOME,
-        "poder",
-        diceResult2,
-        character2.PODER
-      );
-
+      console.log(`${character1.NOME} fez ${powerResult1} pontos`);
+      console.log(`${character2.NOME} fez ${powerResult2} pontos`);
 
       if (powerResult1 > powerResult2 && character2.PONTOS > 0){
         console.log(`${character1.NOME} venceu o confronto! ${character2.NOME} perdeu 1 ponto`);
@@ -228,27 +279,19 @@ async function declareWinner(character1, character2){
 }
 
 (async function main(){
-  // console.log(
-      // `🏁 Corrida entre ${player1.NOME} e ${player2.NOME} 🏁\n`
-    // );
   try {
     await characterSelect(player1);
-    console.log(player1);
-    
     await characterSelect(player2);
-    console.log(player2);
-
-    
   } catch (error) {
     console.error(error);
   } finally {
     rl.close()
   }
 
+  // console.log(
+  //     `🏁 Corrida entre ${player1.NOME} e ${player2.NOME} 🏁\n`
+  //   );
+  //   await playRaceEngine(player1, player2);
 
-
-
-    // await playRaceEngine(player1, player2);
-
-    // await declareWinner(player1, player2);
+  //   await declareWinner(player1, player2);
 })();
