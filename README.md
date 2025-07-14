@@ -5,7 +5,7 @@
 <table>
     <tr>
         <td>
-            <img src="./docs/characters/header.gif" width="200" alt="Mario Kart">
+            <img src="./Docs/Characters/header.gif" width="200" alt="Mario Kart">
         </td>
         <td>
             <p style="font-size: 1rem; color: #fff;">
@@ -21,7 +21,7 @@
     <tr>
         <td style="width: 33.33%; padding: 1rem; border: 3px solid #333; vertical-align: middle;">
             <div style="display: flex; align-items: center;">
-                <img src="./docs/characters/mario.gif" alt="Mario" width="100px" style="margin-right: 15px;">
+                <img src="./Docs/Characters/mario.gif" alt="Mario" width="100px" style="margin-right: 15px;">
                 <div>
                     <strong>Mario</strong><br>
                     Velocidade: 3<br>
@@ -32,7 +32,7 @@
         </td>
         <td style="width: 33.33%; padding: 1rem; border: 3px solid #333; vertical-align: middle;">
             <div style="display: flex; align-items: center;">
-                <img src="./docs/characters/luigi.gif" alt="Luigi" width="100px" style="margin-right: 15px;">
+                <img src="./Docs/Characters/luigi.gif" alt="Luigi" width="100px" style="margin-right: 15px;">
                 <div>
                     <strong>Luigi</strong><br>
                     Velocidade: 4<br>
@@ -43,7 +43,7 @@
         </td>
         <td style="width: 33.33%; padding: 1rem; border: 3px solid #333; vertical-align: middle;">
             <div style="display: flex; align-items: center;">
-                <img src="./docs/characters/peach.gif" alt="Peach" width="100px" style="margin-right: 15px;">
+                <img src="./Docs/Characters/peach.gif" alt="Peach" width="100px" style="margin-right: 15px;">
                 <div>
                     <strong>Peach</strong><br>
                     Velocidade: 3<br>
@@ -56,7 +56,7 @@
     <tr>
         <td style="width: 33.33%; padding: 1rem; border: 3px solid #333; vertical-align: middle;">
             <div style="display: flex; align-items: center;">
-                <img src="./docs/characters/koopa.gif" alt="Koopa" width="100px" style="margin-right: 15px;">
+                <img src="./Docs/Characters/koopa.gif" alt="Koopa" width="100px" style="margin-right: 15px;">
                 <div>
                     <strong>Koopa</strong><br>
                     Velocidade: 3<br>
@@ -67,7 +67,7 @@
         </td>
         <td style="width: 33.33%; padding: 1rem; border: 3px solid #333; vertical-align: middle;">
             <div style="display: flex; align-items: center;">
-                <img src="./docs/characters/header.gif" alt="Mario Kart" width="100px" style="margin-right: 15px;">
+                <img src="./Docs/Characters/header.gif" alt="Mario Kart" width="100px" style="margin-right: 15px;">
                 <div>
                     <strong>???</strong><br>
                     Velocidade: ?<br>
@@ -78,7 +78,7 @@
         </td>
         <td style="width: 33.33%; padding: 1rem; border: 3px solid #333; vertical-align: middle;">
             <div style="display: flex; align-items: center;">
-                <img src="./docs/characters/yoshi.gif" alt="Yoshi" width="100px" style="margin-right: 15px;">
+                <img src="./Docs/Characters/yoshi.gif" alt="Yoshi" width="100px" style="margin-right: 15px;">
                 <div>
                     <strong>Yoshi</strong><br>
                     Velocidade: 4<br>
@@ -91,7 +91,7 @@
     <tr>
         <td style="width: 33.33%; padding: 1rem; border: 3px solid #333; vertical-align: middle;">
             <div style="display: flex; align-items: center;">
-                <img src="./docs/characters/toad.gif" alt="Toad" width="100px" style="margin-right: 15px;">
+                <img src="./Docs/Characters/toad.gif" alt="Toad" width="100px" style="margin-right: 15px;">
                 <div>
                     <strong>Toad</strong><br>
                     Velocidade: 5<br>
@@ -102,7 +102,7 @@
         </td>
         <td style="width: 33.33%; padding: 1rem; border: 3px solid #333; vertical-align: middle;">
             <div style="display: flex; align-items: center;">
-                <img src="./docs/characters/bowser.gif" alt="Bowser" width="100px" style="margin-right: 15px;">
+                <img src="./Docs/Characters/bowser.gif" alt="Bowser" width="100px" style="margin-right: 15px;">
                 <div>
                     <strong>Bowser</strong><br>
                     Velocidade: 2<br>
@@ -113,7 +113,7 @@
         </td>
         <td style="width: 33.33%; padding: 1rem; border: 3px solid #333; vertical-align: middle;">
             <div style="display: flex; align-items: center;">
-                <img src="./docs/characters/donkeykong.gif" alt="Donkey Kong" width="100px" style="margin-right: 15px;">
+                <img src="./Docs/Characters/donkeykong.gif" alt="Donkey Kong" width="100px" style="margin-right: 15px;">
                 <div>
                     <strong>Donkey Kong</strong><br>
                     Velocidade: 2<br>
@@ -126,11 +126,11 @@
 </table>
 
 <div style="display: flex; align-items: center; width: 100%; margin-top: 2rem;">
-    <img src="./docs/items/random.gif" width="40px" height="40px">
+    <img src="./Docs/Items/random.gif" width="40px" height="40px">
     <div style="flex: 1; border-bottom: 2px solid #333; margin: 0 10px;">
         <h2 style="color: #ffa500; padding-bottom: 0.3rem; margin: 0; text-align: center;">Itens</h2>
     </div>
-    <img src="./docs/items/random.gif" width="40px" height="40px">
+    <img src="./Docs/Items/random.gif" width="40px" height="40px">
 </div>
 
 
@@ -138,7 +138,7 @@
     <tr>
         <td style="width: 33.33%; padding: 1rem; border: 3px solid #333; vertical-align: middle;">
             <div style="display: flex; align-items: center;">
-                <img src="./docs/items/bomb.jpg" alt="Bob-Omb" width="100px" style="margin-right: 15px;">
+                <img src="./Docs/Items/bomb.jpg" alt="Bob-Omb" width="100px" style="margin-right: 15px;">
                 <div>
                     <strong>Bob-Omb</strong><br>
                     Pontos: -3
@@ -147,7 +147,7 @@
         </td>
         <td style="width: 33.33%; padding: 1rem; border: 3px solid #333; vertical-align: middle;">
             <div style="display: flex; align-items: center;">
-                <img src="./docs/items/boo.png" alt="Boo" width="100px" style="margin-right: 15px;">
+                <img src="./Docs/Items/boo.png" alt="Boo" width="100px" style="margin-right: 15px;">
                 <div>
                     <strong>Boo</strong><br>
                     Pontos: 0<br>
@@ -156,7 +156,7 @@
         </td>
         <td style="width: 33.33%; padding: 1rem; border: 3px solid #333; vertical-align: middle;">
             <div style="display: flex; align-items: center;">
-                <img src="./docs/items/shell.jpg" alt="Shell" width="100px" style="margin-right: 15px;">
+                <img src="./Docs/Items/shell.jpg" alt="Shell" width="100px" style="margin-right: 15px;">
                 <div>
                     <strong>Shell</strong><br>
                     Pontos: -2
@@ -187,7 +187,7 @@
     <tr>
         <td style="padding: 1rem; border: 3px solid #333; vertical-align: middle;">
             <div style="display: flex; align-items: center;">
-                <img src="./docs/maps/trechoreta.png" alt="Reta" width="100px" style="margin-right: 15px;">
+                <img src="./Docs/Maps/trechoreta.png" alt="Reta" width="100px" style="margin-right: 15px;">
                 <div>
                     <strong>Reta</strong>
                     <p>Caso o bloco da pista seja uma RETA, o jogador deve:</p>
@@ -201,7 +201,7 @@
     <tr>
         <td style="padding: 1rem; border: 3px solid #333; vertical-align: middle;">
             <div style="display: flex; align-items: center;">
-                <img src="./docs/maps/trechocurva.png" alt="Curva" width="100px" style="margin-right: 15px;">
+                <img src="./Docs/Maps/trechocurva.png" alt="Curva" width="100px" style="margin-right: 15px;">
                 <div>
                     <strong>Curva</strong>
                     <p>Caso o bloco da pista seja uma CURVA, o jogador deve:</p>
@@ -215,7 +215,7 @@
     <tr>
         <td style="padding: 1rem; border: 3px solid #333; vertical-align: middle;">
             <div style="display: flex; align-items: center;">
-                <img src="./docs/items/box.png" alt="Confronto" width="100px" style="margin-right: 15px;">
+                <img src="./Docs/Items/box.png" alt="Confronto" width="100px" style="margin-right: 15px;">
                 <div>
                     <strong>Confronto</strong><input type="checkbox" id="pistas-2-3-item"/>
                     <p>Caso o bloco da pista seja um CONFRONTO, o jogador deve:</p>
