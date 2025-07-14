@@ -1,4 +1,3 @@
-// Fazer as importações
 const { characterSelect, rl } = require('./characterSelect.js');
 const { playRaceEngine, declareWinner } = require('./raceEngine.js'); 
 
@@ -32,7 +31,7 @@ let player2 = {
   } catch (error) {
     console.error(error);
   } finally {
-    rl.close()
+    rl.close();
   }
 
 })();
